@@ -1,5 +1,6 @@
 package com.example.orientex_v6
 
+import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.IntentSender
@@ -20,6 +21,7 @@ import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -31,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -67,6 +68,8 @@ class MainActivity : AppCompatActivity() {
                 // TODO: check if needed
                 // No saved credentials found. Launch the One Tap sign-up flow, or
                 // do nothing and continue presenting the signed-out UI.
+                setResult(Activity.RESULT_OK)
+                Log.e("Google", "No credentials found")
                 Log.d(TAG, e.localizedMessage)
             }
 
